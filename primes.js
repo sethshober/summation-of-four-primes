@@ -48,23 +48,22 @@ function getPrimes(max) {
 
 // binary search. vastly improves performance.
 function binaryIndexOf(searchElement, arr) {
-    var minIndex = 0
-      , maxIndex = arr.length - 1
-      , currentIndex
-      , currentElement
-    while (minIndex <= maxIndex) {
-        currentIndex = (minIndex + maxIndex) / 2 | 0
-        currentElement = arr[currentIndex]
- 
-        if (currentElement < searchElement) {
-            minIndex = currentIndex + 1
-        }
-        else if (currentElement > searchElement) {
-            maxIndex = currentIndex - 1
-        }
-        else return currentIndex
+  var minIndex = 0
+    , maxIndex = arr.length - 1
+    , currentIndex
+    , currentElement
+  while (minIndex <= maxIndex) {
+    currentIndex = (minIndex + maxIndex) / 2 | 0
+    currentElement = arr[currentIndex]
+    if (currentElement < searchElement) {
+      minIndex = currentIndex + 1
     }
-    return -1
+    else if (currentElement > searchElement) {
+      maxIndex = currentIndex - 1
+    }
+    else return currentIndex
+  }
+  return -1
 }
 
 function testPrimes(x) {
@@ -99,8 +98,7 @@ function testPrimes(x) {
     // changing to 5 improved, but 6 eliminated all
     // this is a cheating way to ensure our we have at leasat 2 2 2 x
     count = x - 6
-    answer.push(2)
-    answer.push(2)
+    answer.push(2,2)
   }
   else { // odd
     // originally 5, had cases of 1.
@@ -108,8 +106,7 @@ function testPrimes(x) {
     // changing to 6 improved, but 7 eliminated all
     // this is a cheating way to ensure our we have at leasat 2 3 2 x
     count = x - 7
-    answer.push(2)
-    answer.push(3)
+    answer.push(2,3)
   }
   findNextLowestPrime()
   return answer
